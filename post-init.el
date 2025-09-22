@@ -30,6 +30,14 @@
 ;; git integration
 (straight-use-package 'magit)
 
+;; python
+(use-package elpy
+  :ensure t
+  :init
+  (elpy-enable))
+
+(straight-use-package 'ein)
+
 ;; racket
 (straight-use-package 'racket-mode)
 ;; racket-mode
