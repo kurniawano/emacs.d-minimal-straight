@@ -36,6 +36,9 @@
   :init
   (elpy-enable))
 
+(setq python-shell-interpreter "/opt/anaconda3/bin/ipython"
+      python-shell-interpreter-args "-i --simple-prompt")
+
 (straight-use-package 'ein)
 
 ;; racket
@@ -44,6 +47,17 @@
 (add-to-list 'auto-mode-alist '("\\.rkt\\'" . racket-mode))
 (setq racket-racket-program "/Applications/Racket v8.18/bin/racket")
 (add-hook 'racket-mode-hook (lambda () (paredit-mode 1)))
+
+;; Markdown
+
+(straight-use-package 'impatient-mode)
+
+ <!-- language: lang-lisp -->
+
+  (defun markdown-html (buffer)
+    (princ (with-current-buffer buffer
+      (format "<!DOCTYPE html><html><title>Impatient Markdown</title><xmp theme=\"united\" style=\"display:none;\"> %s  </xmp><script src=\"http://ndossougbe.github.io/strapdown/dist/strapdown.js\"></script></html>" (buffer-substring-no-properties (point-min) (point-max))))
+           (current-buffer)))
 
 ;; org configuration
 (require 'org)
