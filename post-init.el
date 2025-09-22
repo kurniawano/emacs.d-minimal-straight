@@ -8,6 +8,8 @@
 ;;   :custom
 ;;   (straight-use-package-by-default t))
 
+;; better defaults
+(straight-use-package 'better-defaults)
 ;; paredit
 (straight-use-package 'paredit)
 
@@ -27,6 +29,13 @@
 
 ;; git integration
 (straight-use-package 'magit)
+
+;; racket
+(straight-use-package 'racket-mode)
+;; racket-mode
+(add-to-list 'auto-mode-alist '("\\.rkt\\'" . racket-mode))
+(setq racket-racket-program "/Applications/Racket v8.18/bin/racket")
+(add-hook 'racket-mode-hook (lambda () (paredit-mode 1)))
 
 ;; org configuration
 (require 'org)
