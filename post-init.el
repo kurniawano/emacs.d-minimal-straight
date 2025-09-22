@@ -87,3 +87,6 @@
 (when window-system
   (set-frame-position (selected-frame) 0 0)
   (set-frame-size (selected-frame) 120 32))
+
+;; word wrapped
+(global-visual-line-mode t)
