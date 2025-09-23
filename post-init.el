@@ -3,6 +3,11 @@
 ;; Install use-package
 (straight-use-package 'use-package)
 
+;; make sure the env variable the same as shell
+(straight-use-package 'exec-path-from-shell)
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+
 ;; Configure use-package to use straight.el by default
 ;; (use-package straight
 ;;   :custom
@@ -57,6 +62,10 @@
   (princ (with-current-buffer buffer
            (format "<!DOCTYPE html><html><title>Impatient Markdown</title><xmp theme=\"united\" style=\"display:none;\"> %s  </xmp><script src=\"http://ndossougbe.github.io/strapdown/dist/strapdown.js\"></script></html>" (buffer-substring-no-properties (point-min) (point-max))))
          (current-buffer)))
+
+;; Mermaid graphics
+(straight-use-package 'mermaid-mode)
+(setq mermaid-mmdc-location "/Users/oka_kurniawan/.nvm/versions/node/v22.19.0/bin/mmdc")
 
 ;; org configuration
 (require 'org)
