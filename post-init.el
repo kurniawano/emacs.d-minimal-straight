@@ -32,6 +32,9 @@
 ;; colourful parenthesis matching
 (straight-use-package 'rainbow-delimiters)
 
+;; markdown
+(straight-use-package 'markdown-mode)
+
 ;; git integration
 (straight-use-package 'magit)
 
